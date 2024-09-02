@@ -15,7 +15,7 @@ def get_data(filename):
             dates.append(int(row[0].split('-')[0]))
             prices.append(float(row[1]))
     return
-  def predict_prices(dates, prices, x):
+def predict_prices(dates, prices, x):
       dates = np.reshape(len (dates), 1)
 
       svr_len = SVR(kernel= 'linear', C=1e3)
@@ -31,14 +31,14 @@ def get_data(filename):
       plt.plot(dates, svr_poly.predict(dates), color='blue', label='Polynomial model')
       plt.xlabel('Date')
       plt.ylabel('Price')
-      plt.title(Regression 101')
+      plt.title('Regression 101')
       plt.legend()
       plt.show()
 
       return svr_rbf.predict(x)[0], svr_lin.predict(x)[0], svr_poly.predict(x)[0]
 
-  get data ('tsla.csv')
+get_data ('tsla.csv')
 
-  predicted price = predict_price(dates, prices, 20)
+predicted_price = predict_price(dates, prices, 20)
 
 print(predicted_price)
